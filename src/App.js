@@ -92,18 +92,12 @@ const App = ({ signOut }) => {
 
   return (
     <View className="App">
-      <Heading level={1}>My Notes App</Heading>
+      <Heading level={1}>My Grocery List</Heading>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
-          <View
-            name="image"
-            as="input"
-            type="file"
-            style={{ alignSelf: "end" }}
-          />
           <TextField
             name="name"
-            placeholder="Note Name"
+            placeholder="Item Name"
             label="Note Name"
             labelHidden
             variation="quiet"
@@ -111,18 +105,30 @@ const App = ({ signOut }) => {
           />
           <TextField
             name="description"
-            placeholder="Note Description"
+            placeholder="Qty"
             label="Note Description"
             labelHidden
             variation="quiet"
             required
           />
+          <TextField
+            placeholder = "add image"
+            labelHidden
+            variation = "quiet"
+          />
+          <View
+            name="image"
+            placeholder="image file"
+            as="input"
+            type="file"
+            style={{ alignSelf: "end" }}
+          />
           <Button type="submit" variation="primary">
-            Create Note
+            Add Item
           </Button>
         </Flex>
       </View>
-      <Heading level={2}>Current Notes</Heading>
+      <Heading level={2}>Current Grocery List</Heading>
       <View margin="3rem 0">
         {/* {notes.map((note) => (
           <Flex
@@ -155,11 +161,11 @@ const App = ({ signOut }) => {
               <Image
                 src={note.image}
                 alt={`visual aid for ${notes.name}`}
-                style={{ width: 400 }}
+                style={{ width: 100, height: 100 }}
               />
             )}
             <Button variation="link" onClick={() => deleteNote(note)}>
-              Delete note
+              Delete Item
             </Button>
           </Flex>
         ))}
